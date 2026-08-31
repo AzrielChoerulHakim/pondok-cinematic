@@ -4,7 +4,7 @@ import './App.css'
 const FRAME_COUNT = 154
 
 const framePath = (frame: number) =>
-  `/frames/frame-${String(frame).padStart(4, '0')}.jpg`
+  `${import.meta.env.BASE_URL}frames/frame-${String(frame).padStart(4, '0')}.jpg`
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
