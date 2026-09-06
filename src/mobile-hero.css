@@ -1,49 +1,77 @@
-/* HERO MOBILE VISUAL REFINEMENT
-   Preserve the full wide Quran composition on portrait screens. */
+/* HERO MOBILE COMPOSITION
+   Intent: make the wide Quran footage feel intentionally composed
+   on portrait phones, without cropping the central Qur'an spread. */
+
 @media (max-width: 800px) {
-  .hero-video {
-    object-fit: contain !important;
-    object-position: center center !important;
-    background: #050403 !important;
+  .cinematic-hero {
+    height: 112vh;
   }
 
   .hero-sticky {
-    background: #050403 !important;
+    background:
+      radial-gradient(
+        ellipse at 50% 52%,
+        rgba(60, 46, 29, 0.24) 0%,
+        rgba(5, 4, 3, 0.92) 72%
+      );
   }
 
+  .hero-video {
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%) scale(1.04);
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    filter: saturate(0.94) contrast(1.02) brightness(0.9);
+  }
+
+  /* Keep the upper area quiet so navigation remains legible. */
   .hero-vignette {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.22) 0%,
-      rgba(0, 0, 0, 0) 35%,
-      rgba(0, 0, 0, 0.12) 62%,
-      rgba(0, 0, 0, 0.72) 100%
-    ) !important;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.42) 0%,
+        rgba(0, 0, 0, 0.08) 23%,
+        rgba(0, 0, 0, 0) 52%,
+        rgba(0, 0, 0, 0.2) 73%,
+        rgba(0, 0, 0, 0.78) 100%
+      ) !important;
   }
 
   .hero-video-glow {
-    background: radial-gradient(
-      ellipse at center,
-      rgba(241, 228, 209, 0.045) 0%,
-      rgba(5, 4, 3, 0.08) 45%,
-      rgba(5, 4, 3, 0.58) 100%
-    ) !important;
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(241, 228, 209, 0.05) 0%,
+        rgba(5, 4, 3, 0) 48%,
+        rgba(5, 4, 3, 0.55) 100%
+      ) !important;
   }
 
   .hero-copy {
     left: 24px !important;
     right: 24px !important;
-    bottom: 7vh !important;
-  }
-
-  .hero-copy h1 {
-    font-size: clamp(40px, 12.5vw, 66px) !important;
-    line-height: 0.91 !important;
+    bottom: 6.5vh !important;
+    max-width: none !important;
   }
 
   .hero-copy .eyebrow {
-    margin-bottom: 16px !important;
+    margin-bottom: 14px !important;
     font-size: 8px !important;
-    letter-spacing: 0.24em !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  .hero-copy h1 {
+    max-width: 560px !important;
+    font-size: clamp(38px, 12vw, 64px) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.045em !important;
   }
 }
