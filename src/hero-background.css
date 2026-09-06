@@ -1,0 +1,7 @@
+/* HERO BACKGROUND ALIGNMENT
+   Keep the hero visually continuous with the forest-green system. */
+
+.cinematic-hero,
+.hero-sticky {
+  background: var(--black);
+}
