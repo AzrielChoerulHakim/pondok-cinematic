@@ -8,21 +8,21 @@
   }
 
   .hero-sticky {
-    background: #050403;
+    background: var(--black);
   }
 
-  /* Keep the original 16:9 video ratio. Make the Quran smaller,
-     centered, and intentionally surrounded by negative space. */
+  /* Bring the Quran closer on phones while keeping the whole video
+     centered and preserving its 16:9 composition. */
   .hero-video {
     position: absolute !important;
     top: 45% !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
-    width: 88vw !important;
+    width: 96vw !important;
     height: auto !important;
     min-width: 0 !important;
-    max-width: 88vw !important;
+    max-width: 96vw !important;
     transform: translate(-50%, -50%) !important;
     transform-origin: center center !important;
     object-fit: contain !important;
@@ -47,9 +47,9 @@
     background:
       radial-gradient(
         ellipse at center 45%,
-        rgba(241, 228, 209, 0.055) 0%,
-        rgba(5, 4, 3, 0) 48%,
-        rgba(5, 4, 3, 0.42) 100%
+        rgba(242, 232, 213, 0.055) 0%,
+        rgba(6, 20, 15, 0) 48%,
+        rgba(6, 20, 15, 0.42) 100%
       ) !important;
   }
 
