@@ -1,6 +1,6 @@
 /* MOBILE HERO REFINEMENT
-   Preserve the hero's original starting position and composition.
-   Only the mobile visual scale/framing is adjusted here. */
+   Mobile-only art direction.
+   Desktop styles are intentionally untouched. */
 
 @media (max-width: 800px) {
   .cinematic-hero {
@@ -11,19 +11,26 @@
     background: #050403;
   }
 
+  /* Keep the source ratio and center the Quran as a contained visual. */
   .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(0.78);
-    transform-origin: center center;
-    object-fit: cover !important;
-    object-position: 50% 50% !important;
-    background: #050403 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 82vw !important;
+    height: auto !important;
+    min-width: 0 !important;
+    max-width: 82vw !important;
+    transform: translate(-50%, -50%) !important;
+    transform-origin: center center !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
     filter: saturate(0.94) contrast(1.02) brightness(0.9);
   }
 
+  /* Preserve the dark cinematic breathing room and protect the copy. */
   .hero-vignette {
     background:
       linear-gradient(
@@ -39,7 +46,7 @@
   .hero-video-glow {
     background:
       radial-gradient(
-        ellipse at center,
+        ellipse at center 50%,
         rgba(241, 228, 209, 0.055) 0%,
         rgba(5, 4, 3, 0) 48%,
         rgba(5, 4, 3, 0.42) 100%
