@@ -1,6 +1,6 @@
 /* MOBILE HERO REFINEMENT
-   Preserve the hero's original full-bleed starting position.
-   Mobile gets its own framing and readability treatment only. */
+   Preserve the hero's original starting position and composition.
+   Only the mobile visual scale/framing is adjusted here. */
 
 @media (max-width: 800px) {
   .cinematic-hero {
@@ -16,7 +16,8 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    transform: none;
+    transform: scale(0.78);
+    transform-origin: center center;
     object-fit: cover !important;
     object-position: 50% 50% !important;
     background: #050403 !important;
@@ -27,11 +28,11 @@
     background:
       linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.02) 26%,
+        rgba(0, 0, 0, 0.32) 0%,
+        rgba(0, 0, 0, 0.02) 28%,
         rgba(0, 0, 0, 0.02) 52%,
-        rgba(0, 0, 0, 0.2) 72%,
-        rgba(0, 0, 0, 0.76) 100%
+        rgba(0, 0, 0, 0.18) 72%,
+        rgba(0, 0, 0, 0.78) 100%
       ) !important;
   }
 
