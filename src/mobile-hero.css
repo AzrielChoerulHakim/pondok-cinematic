@@ -11,18 +11,18 @@
     background: var(--black);
   }
 
-  /* Bring the Quran closer on phones while keeping the whole video
-     centered and preserving its 16:9 composition. */
+  /* Make the Quran substantially larger on phones. The lower copy may
+     overlap the video frame intentionally for a tighter cinematic composition. */
   .hero-video {
     position: absolute !important;
     top: 45% !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
-    width: 96vw !important;
+    width: 112vw !important;
     height: auto !important;
     min-width: 0 !important;
-    max-width: 96vw !important;
+    max-width: 112vw !important;
     transform: translate(-50%, -50%) !important;
     transform-origin: center center !important;
     object-fit: contain !important;
