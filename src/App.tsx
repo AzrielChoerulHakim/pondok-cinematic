@@ -1,270 +1,33 @@
 import { useEffect, useRef } from 'react'
 import './App.css'
 
-const FRAME_COUNT = 154
-
-const framePath = (frame: number) =>
-  `${import.meta.env.BASE_URL}frames/frame-${String(frame).padStart(4, '0')}.jpg`
+const HERO_VIDEO_PATH = `${import.meta.env.BASE_URL}15172.mp4`
 
 function App() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  const imagesRef = useRef<(HTMLImageElement | null)[]>(
-    Array(FRAME_COUNT).fill(null)
-  )
-
-  const loadedRef = useRef<boolean[]>(
-    Array(FRAME_COUNT).fill(false)
-  )
-
-  const currentFrameRef = useRef(0)
-  const targetFrameRef = useRef(0)
-
-  const rafRef = useRef<number | null>(null)
-
-  // --------------------------------------------------
-  // CANVAS
-  // --------------------------------------------------
-
-  const renderFrame = (frameIndex: number) => {
-    const canvas = canvasRef.current
-    const image = imagesRef.current[frameIndex]
-
-    if (!canvas || !image || !image.complete) return
-    if (!image.naturalWidth || !image.naturalHeight) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const rect = canvas.getBoundingClientRect()
-
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
-
-    const width = rect.width
-    const height = rect.height
-
-    const pixelWidth = Math.round(width * dpr)
-    const pixelHeight = Math.round(height * dpr)
-
-    if (
-      canvas.width !== pixelWidth ||
-      canvas.height !== pixelHeight
-    ) {
-      canvas.width = pixelWidth
-      canvas.height = pixelHeight
-    }
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-    ctx.clearRect(0, 0, width, height)
-
-    const imageRatio =
-      image.naturalWidth / image.naturalHeight
-
-    const viewportRatio = width / height
-
-    let drawWidth = width
-    let drawHeight = height
-
-    if (imageRatio > viewportRatio) {
-      drawHeight = height
-      drawWidth = height * imageRatio
-    } else {
-      drawWidth = width
-      drawHeight = width / imageRatio
-    }
-
-    const x = (width - drawWidth) / 2
-    const y = (height - drawHeight) / 2
-
-    ctx.drawImage(
-      image,
-      x,
-      y,
-      drawWidth,
-      drawHeight
-    )
-  }
-
-  // --------------------------------------------------
-  // LOAD FRAME
-  // --------------------------------------------------
-
-  const loadFrame = (index: number) => {
-    if (index < 0 || index >= FRAME_COUNT) return
-    if (imagesRef.current[index]) return
-
-    const image = new Image()
-
-    image.src = framePath(index + 1)
-
-    image.onload = () => {
-      imagesRef.current[index] = image
-      loadedRef.current[index] = true
-
-      if (
-        index ===
-        Math.round(currentFrameRef.current)
-      ) {
-        renderFrame(index)
-      }
-    }
-
-    image.onerror = () => {
-      console.warn(
-        `Could not load ${framePath(index + 1)}`
-      )
-    }
-  }
-
-  // --------------------------------------------------
-  // INITIAL LOAD
-  // --------------------------------------------------
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    loadFrame(0)
+    const video = heroVideoRef.current
+    if (!video) return
 
-    let next = 1
-
-    const preload = () => {
-      const batchSize = 12
-      const end = Math.min(
-        next + batchSize,
-        FRAME_COUNT
-      )
-
-      for (let i = next; i < end; i++) {
-        loadFrame(i)
-      }
-
-      next = end
-
-      if (next < FRAME_COUNT) {
-        window.setTimeout(preload, 100)
+    const playVideo = async () => {
+      try {
+        await video.play()
+      } catch {
+        // Autoplay can be deferred by the browser until the media is ready.
       }
     }
 
-    const timeout = window.setTimeout(preload, 100)
+    playVideo()
+
+    const handleVisibility = () => {
+      if (!document.hidden) playVideo()
+    }
+
+    document.addEventListener('visibilitychange', handleVisibility)
 
     return () => {
-      window.clearTimeout(timeout)
-    }
-  }, [])
-
-  // --------------------------------------------------
-  // SCROLL → FRAME
-  // --------------------------------------------------
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const hero =
-        document.getElementById('cinematic-hero')
-
-      if (!hero) return
-
-      const rect = hero.getBoundingClientRect()
-
-      const scrollDistance =
-        hero.offsetHeight -
-        window.innerHeight
-
-      if (scrollDistance <= 0) return
-
-      const travelled = Math.min(
-        Math.max(-rect.top, 0),
-        scrollDistance
-      )
-
-      const progress =
-        travelled / scrollDistance
-
-      targetFrameRef.current =
-        progress * (FRAME_COUNT - 1)
-    }
-
-    window.addEventListener(
-      'scroll',
-      handleScroll,
-      { passive: true }
-    )
-
-    handleScroll()
-
-    return () => {
-      window.removeEventListener(
-        'scroll',
-        handleScroll
-      )
-    }
-  }, [])
-
-  // --------------------------------------------------
-  // FRAME ANIMATION
-  // --------------------------------------------------
-
-  useEffect(() => {
-    const animate = () => {
-      const current =
-        currentFrameRef.current
-
-      const target =
-        targetFrameRef.current
-
-      const difference = target - current
-
-      if (Math.abs(difference) < 0.03) {
-        currentFrameRef.current = target
-      } else {
-        currentFrameRef.current +=
-          difference * 0.2
-      }
-
-      const frameIndex = Math.round(
-        currentFrameRef.current
-      )
-
-      if (loadedRef.current[frameIndex]) {
-        renderFrame(frameIndex)
-      }
-
-      rafRef.current =
-        requestAnimationFrame(animate)
-    }
-
-    rafRef.current =
-      requestAnimationFrame(animate)
-
-    return () => {
-      if (rafRef.current) {
-        cancelAnimationFrame(
-          rafRef.current
-        )
-      }
-    }
-  }, [])
-
-  // --------------------------------------------------
-  // RESIZE
-  // --------------------------------------------------
-
-  useEffect(() => {
-    const handleResize = () => {
-      renderFrame(
-        Math.round(
-          currentFrameRef.current
-        )
-      )
-    }
-
-    window.addEventListener(
-      'resize',
-      handleResize
-    )
-
-    return () => {
-      window.removeEventListener(
-        'resize',
-        handleResize
-      )
+      document.removeEventListener('visibilitychange', handleVisibility)
     }
   }, [])
 
@@ -330,12 +93,20 @@ function App() {
 
         <div className="hero-sticky">
 
-          <canvas
-            ref={canvasRef}
-            className="hero-canvas"
+          <video
+            ref={heroVideoRef}
+            className="hero-video"
+            src={HERO_VIDEO_PATH}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            aria-label="Animasi Al-Qur'an"
           />
 
           <div className="hero-vignette" />
+          <div className="hero-video-glow" />
 
           <div className="hero-copy">
 
