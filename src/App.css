@@ -24,8 +24,8 @@ main { overflow: clip; }
 .site-nav nav a:hover { opacity: 1; }
 .menu-button { display: none; }
 
-.cinematic-hero { position: relative; height: 160vh; background: var(--black); }
-.hero-sticky { position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background: var(--black); }
+.cinematic-hero { position: relative; height: 160vh; background: #050403; }
+.hero-sticky { position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background: #050403; }
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; background: var(--black); filter: saturate(0.92) contrast(1.03) brightness(0.88); }
 .hero-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 38%, rgba(6, 20, 15, 0.2) 72%, rgba(6, 20, 15, 0.48) 100%); }
 .hero-video-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(242, 232, 213, 0.05) 0%, transparent 52%); }
@@ -41,7 +41,6 @@ main { overflow: clip; }
 .statement-content h2 { margin: 0; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(54px, 8vw, 128px); line-height: 0.92; font-weight: 400; letter-spacing: -0.05em; }
 .statement-content > p:last-child { max-width: 500px; margin-top: 55px; font-size: 15px; line-height: 1.8; color: var(--muted); }
 
-/* 02 — TENTANG */
 .about-section { position: relative; min-height: 110vh; padding: 15vh 8vw; background: var(--bone); color: var(--black); }
 .about-grid { max-width: 1350px; margin: 0 auto; display: grid; grid-template-columns: minmax(300px, 1.1fr) minmax(300px, 0.9fr); gap: 9vw; align-items: center; }
 .about-image { min-height: 720px; background: #0B2118; display: grid; place-items: center; }
@@ -52,7 +51,6 @@ main { overflow: clip; }
 .about-content > p:not(.eyebrow) { max-width: 480px; margin-top: 40px; font-size: 15px; line-height: 1.8; color: rgba(6, 20, 15, 0.62); }
 .text-link { display: inline-flex; gap: 20px; margin-top: 35px; padding-bottom: 8px; border-bottom: 1px solid rgba(6, 20, 15, 0.4); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
 
-/* 03 — PENDIDIKAN */
 .method-section { position: relative; min-height: 110vh; padding: 18vh 8vw; background: var(--black-soft); }
 .method-heading { max-width: 900px; margin-left: 15vw; }
 .method-heading h2 { margin: 0; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(55px, 7vw, 110px); line-height: 0.94; font-weight: 400; letter-spacing: -0.05em; }
@@ -63,7 +61,6 @@ main { overflow: clip; }
 .method-list h3 { margin: 0; font-family: "DM Serif Display", Georgia, serif; font-size: 35px; font-weight: 400; }
 .method-list p { margin: 0; max-width: 400px; color: var(--muted); font-size: 14px; line-height: 1.8; }
 
-/* 04 — KEHIDUPAN SANTRI */
 .life-section { position: relative; padding: 18vh 6vw; background: #DDE7DE; color: var(--black); }
 .life-header { max-width: 900px; margin: 0 0 10vh 15vw; }
 .life-header .eyebrow { color: rgba(6, 20, 15, 0.52); }
@@ -72,7 +69,6 @@ main { overflow: clip; }
 .life-image { min-height: 430px; background: #0B2118; color: rgba(242, 232, 213, 0.2); display: grid; place-items: center; font-size: 9px; letter-spacing: 0.3em; }
 .life-image-large { min-height: 700px; grid-row: span 2; }
 
-/* 05 — PROGRAM */
 .program-section { position: relative; min-height: 100vh; padding: 18vh 8vw; background: var(--black); }
 .program-heading { margin-left: 15vw; max-width: 900px; }
 .program-heading h2 { margin: 0; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(55px, 7vw, 110px); line-height: 0.93; font-weight: 400; letter-spacing: -0.05em; }
@@ -85,7 +81,6 @@ main { overflow: clip; }
 .program-list p { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
 .arrow { font-size: 20px; opacity: 0.5; color: var(--gold); }
 
-/* 06 — PEOPLE */
 .people-section { position: relative; min-height: 110vh; padding: 18vh 7vw; background: var(--bone); color: var(--black); }
 .people-heading { margin-left: 15vw; max-width: 900px; }
 .people-heading .eyebrow { color: rgba(6, 20, 15, 0.52); }
@@ -95,25 +90,21 @@ main { overflow: clip; }
 .people-grid article p { margin: 18px 0 5px; font-family: "DM Serif Display", Georgia, serif; font-size: 25px; }
 .people-grid article span { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5; }
 
-/* 07 — PENDAFTARAN */
 .admission-section { position: relative; min-height: 90vh; padding: 18vh 8vw; display: flex; align-items: center; background: var(--black-soft); }
 .admission-content { margin-left: 15vw; max-width: 1000px; }
 .admission-content h2 { margin: 0; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(60px, 8vw, 125px); line-height: 0.9; font-weight: 400; letter-spacing: -0.055em; }
 .admission-button { display: inline-flex; gap: 35px; margin-top: 60px; padding: 17px 0; border-bottom: 1px solid rgba(242, 232, 213, 0.55); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bone); }
 .admission-button span { color: var(--gold); }
 
-/* FINAL */
 .final-section { min-height: 90vh; padding: 18vh 8vw; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--bone); color: var(--black); }
 .final-section .eyebrow { color: rgba(6, 20, 15, 0.48); }
 .final-section h2 { max-width: 1000px; margin: 0; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(55px, 8vw, 125px); line-height: 0.92; font-weight: 400; letter-spacing: -0.055em; }
 .final-mark { width: 45px; height: 45px; margin-top: 70px; display: grid; place-items: center; border: 1px solid rgba(6, 20, 15, 0.35); font-family: Georgia, serif; color: var(--gold); }
 
-/* FOOTER */
 .site-footer { min-height: 230px; padding: 60px 6vw; display: grid; grid-template-columns: 1fr 1fr auto; gap: 40px; align-items: end; background: var(--black); color: var(--bone); font-size: 10px; letter-spacing: 0.12em; }
 .site-footer > div { display: flex; flex-direction: column; gap: 12px; }
 .footer-brand { font-family: "DM Serif Display", Georgia, serif; font-size: 30px; letter-spacing: -0.02em; color: var(--bone); }
 
-/* MOBILE BASE — layout only; hero art direction remains in mobile-hero.css */
 @media (max-width: 800px) {
   .site-nav { height: 72px; padding: 0 24px; }
   .site-nav nav { display: none; }
