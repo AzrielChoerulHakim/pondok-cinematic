@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import './App.css'
 
-const HERO_VIDEO_PATH = `${import.meta.env.BASE_URL}15172.mp4`
+const HERO_VIDEO_PATH = `${import.meta.env.BASE_URL}15172.mp4?v=20260906-2`
 
 function App() {
   const heroVideoRef = useRef<HTMLVideoElement>(null)
