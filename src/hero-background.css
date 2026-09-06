@@ -3,5 +3,5 @@
 
 .cinematic-hero,
 .hero-sticky {
-  background: var(--black);
+  background: var(--black) !important;
 }
