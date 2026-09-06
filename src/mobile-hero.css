@@ -11,17 +11,18 @@
     background: #050403;
   }
 
-  /* Keep the source ratio and center the Quran as a contained visual. */
+  /* Keep the original 16:9 video ratio. Make the Quran smaller,
+     centered, and intentionally surrounded by negative space. */
   .hero-video {
     position: absolute !important;
-    top: 50% !important;
+    top: 45% !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
-    width: 82vw !important;
+    width: 88vw !important;
     height: auto !important;
     min-width: 0 !important;
-    max-width: 82vw !important;
+    max-width: 88vw !important;
     transform: translate(-50%, -50%) !important;
     transform-origin: center center !important;
     object-fit: contain !important;
@@ -30,7 +31,6 @@
     filter: saturate(0.94) contrast(1.02) brightness(0.9);
   }
 
-  /* Preserve the dark cinematic breathing room and protect the copy. */
   .hero-vignette {
     background:
       linear-gradient(
@@ -46,7 +46,7 @@
   .hero-video-glow {
     background:
       radial-gradient(
-        ellipse at center 50%,
+        ellipse at center 45%,
         rgba(241, 228, 209, 0.055) 0%,
         rgba(5, 4, 3, 0) 48%,
         rgba(5, 4, 3, 0.42) 100%
