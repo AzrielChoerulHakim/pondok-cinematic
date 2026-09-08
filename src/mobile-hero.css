@@ -15,7 +15,7 @@
      overlap the video frame intentionally for a tighter cinematic composition. */
   .hero-video {
     position: absolute !important;
-    top: 45% !important;
+    top: 50% !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
@@ -35,9 +35,9 @@
     background:
       linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.32) 0%,
-        rgba(0, 0, 0, 0.02) 28%,
-        rgba(0, 0, 0, 0.02) 52%,
+        rgba(0, 0, 0, 0.38) 0%,
+        rgba(0, 0, 0, 0.04) 24%,
+        rgba(0, 0, 0, 0.01) 52%,
         rgba(0, 0, 0, 0.18) 72%,
         rgba(0, 0, 0, 0.78) 100%
       ) !important;
@@ -46,17 +46,18 @@
   .hero-video-glow {
     background:
       radial-gradient(
-        ellipse at center 45%,
-        rgba(242, 232, 213, 0.055) 0%,
-        rgba(6, 20, 15, 0) 48%,
-        rgba(6, 20, 15, 0.42) 100%
+        ellipse at center 50%,
+        rgba(242, 232, 213, 0.07) 0%,
+        rgba(242, 232, 213, 0.018) 22%,
+        rgba(6, 20, 15, 0) 50%,
+        rgba(6, 20, 15, 0.48) 100%
       ) !important;
   }
 
   .hero-copy {
     left: 24px !important;
     right: 24px !important;
-    bottom: 6.5vh !important;
+    bottom: 7vh !important;
     max-width: none !important;
   }
 
