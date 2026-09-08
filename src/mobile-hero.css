@@ -11,18 +11,18 @@
     background: var(--black);
   }
 
-  /* Make the Quran substantially larger on phones. The lower copy may
-     overlap the video frame intentionally for a tighter cinematic composition. */
+  /* Pull the cinematic frame upward and enlarge it so the Quran becomes
+     the visual anchor instead of a detached media block. */
   .hero-video {
     position: absolute !important;
-    top: 50% !important;
+    top: 39% !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
-    width: 112vw !important;
+    width: 120vw !important;
     height: auto !important;
     min-width: 0 !important;
-    max-width: 112vw !important;
+    max-width: 120vw !important;
     transform: translate(-50%, -50%) !important;
     transform-origin: center center !important;
     object-fit: contain !important;
@@ -54,10 +54,12 @@
       ) !important;
   }
 
+  /* Intentionally overlap the lower edge of the video so the headline
+     reads as part of the same cinematic composition. */
   .hero-copy {
     left: 24px !important;
     right: 24px !important;
-    bottom: 7vh !important;
+    bottom: 20vh !important;
     max-width: none !important;
   }
 
