@@ -11,18 +11,18 @@
     background: var(--black);
   }
 
-  /* Pull the cinematic frame upward and enlarge it so the Quran becomes
-     the visual anchor instead of a detached media block. */
+  /* Cinematic zoom: let the 16:9 frame bleed beyond the phone edges so
+     the Quran and its light occupy the hero instead of reading as a card. */
   .hero-video {
     position: absolute !important;
-    top: 39% !important;
+    top: 43% !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
-    width: 120vw !important;
+    width: 175vw !important;
     height: auto !important;
     min-width: 0 !important;
-    max-width: 120vw !important;
+    max-width: 175vw !important;
     transform: translate(-50%, -50%) !important;
     transform-origin: center center !important;
     object-fit: contain !important;
